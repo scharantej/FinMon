@@ -1,0 +1,52 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Screen Time</title>
+<link rel="stylesheet" href="static/style.css">
+</head>
+<body>
+<h1>Screen Time</h1>
+<nav>
+<ul>
+<li><a href="/">Home</a></li>
+<li><a href="/resources">Resources</a></li>
+<li><a href="/expenses">Expenses</a></li>
+<li><a href="/screen_time">Screen Time</a></li>
+<li><a href="/analytics">Analytics</a></li>
+</ul>
+</nav>
+<main>
+<h2>Your Screen Time</h2>
+<table id="screen_time">
+<thead>
+<tr>
+<th>Date</th>
+<th>Total Time</th>
+<th>Apps</th>
+<th>Actions</th>
+</tr>
+</thead>
+<tbody>
+{% for screen_time in screen_time %}
+<tr>
+<td>{{ screen_time.date }}</td>
+<td>{{ screen_time.total_time }}</td>
+<td>{{ screen_time.apps }}</td>
+<td><a href="/edit_screen_time/{{ screen_time.id }}">Edit</a> | <a href="/delete_screen_time/{{ screen_time.id }}">Delete</a></td>
+</tr>
+{% endfor %}
+</tbody>
+</table>
+<br>
+<a href="/add_screen_time">Add Screen Time</a>
+</main>
+<footer>
+<p>Copyright &copy; 2023 Personal Wallet</p>
+</footer>
+</body>
+</html>
+
+
