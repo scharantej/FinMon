@@ -1,0 +1,64 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Analytics</title>
+<link rel="stylesheet" href="static/style.css">
+</head>
+<body>
+<h1>Analytics</h1>
+<nav>
+<ul>
+<li><a href="/">Home</a></li>
+<li><a href="/resources">Resources</a></li>
+<li><a href="/expenses">Expenses</a></li>
+<li><a href="/screen_time">Screen Time</a></li>
+<li><a href="/analytics">Analytics</a></li>
+</ul>
+</nav>
+<main>
+<h2>Your Analytics</h2>
+<div id="charts">
+<canvas id="resources-chart"></canvas>
+<canvas id="expenses-chart"></canvas>
+<canvas id="screen_time-chart"></canvas>
+</div>
+<script>
+// Generate charts
+var resourcesChart = new Chart(document.getElementById('resources-chart'), {
+type: 'bar',
+data: {
+labels: ['Resource 1', 'Resource 2', 'Resource 3'],
+datasets: [{
+label: 'Amount',
+data: [100, 200, 300]
+}]
+},
+options: {
+scales: {
+yAxes: [{
+ticks: {
+beginAtZero: true
+}
+}]
+}
+}
+});
+
+var expensesChart = new Chart(document.getElementById('expenses-chart'), {
+type: 'pie',
+data: {
+labels: ['Category 1', 'Category 2', 'Category 3'],
+datasets: [{
+label: 'Amount',
+data: [100, 200, 300]
+}]
+},
+options: {
+responsive: true
+}
+});
+
+var screenTimeChart = new Chart(
